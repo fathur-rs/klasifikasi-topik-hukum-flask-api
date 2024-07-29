@@ -7,7 +7,7 @@ app = create_app()
 
 if __name__ == '__main__':
     app.run(
-        debug=os.environ.get("FLASK_DEBUG", True), 
-        host=os.environ.get("FLASK_RUN_HOST", '0.0.0.0'),
-        port=os.environ.get("FLASK_RUN_PORT", 8000)
+        debug=False, 
+        host="0.0.0.0",
+        port=8000
     )  
