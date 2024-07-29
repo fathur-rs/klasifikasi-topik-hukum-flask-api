@@ -178,6 +178,12 @@ git clone https://github.com/fathur-rs/klasifikasi-topik-hukum-flask-api.git
 
 # Change directory to the cloned repository
 cd klasifikasi-topik-hukum-flask-api
+
+# Rename .env-example to .env
+mv .env-example .env
+
+# Generate a random string and insert it as SECRET_KEY in .env
+echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
 ```
 
 ### 2. Docker Installation
