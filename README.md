@@ -5,7 +5,7 @@ Repositori ini berisi API model klasifikasi topik hukum yang dikembangkan menggu
 
 ## Use-Case
 
->  ### Mempercepat Pengalihan Pengaduan ke Ahli yang Tepat
+### Mempercepat Pengalihan Pengaduan ke Ahli yang Tepat
 
 **Konteks Aplikasi:**
 Di banyak instansi pemerintah atau kepolisian, pengaduan dari masyarakat sering mengalami keterlambatan dalam penanganan karena proses identifikasi dan pengalihan ke ahli yang tepat membutuhkan waktu. Hal ini terutama terjadi ketika pengaduan melibatkan isu hukum yang spesifik dan memerlukan pengetahuan ahli untuk direspon dengan tepat
@@ -58,7 +58,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 - **Method**: POST
 - **URL**: `http://localhost:8000/api/auth/register`
 - **Description**:
-  Register a new user with username and password.
+  Register user baru dengan username dan password
 - **Request Body**:
   
   ```json
@@ -77,7 +77,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 - **Method**: POST
 - **URL**: `http://localhost:8000/api/auth/login`
 - **Description**:
-  Authenticate a user and generate JWT token to accessing the model API
+  Autentikasi user untuk men-generate JWT token yang dipakai untuk mengakses API ML model
 - **Requst Body**:
   
   ```json
@@ -99,7 +99,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 - **Method**: POST
 - **URL**: `http://localhost:8000/api/model/predict`
 - **Description**:
-  Model predictions endpoint.
+  Endpoint prediksi model
 - **Request Body**:
   
   ```json
@@ -123,7 +123,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 - **Method**: GET
 - **URL**: `http://localhost:8000/api/model/healthcheck`
 - **Description**:
-  Check the health status of the model.
+  Mengecek status health model
 - **Request Body**:
   
   ```
@@ -149,7 +149,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 - **Method**: GET
 - **URL**: `http://localhost:8000/api/model/architecture`
 - **Description**:
-Return the model architecture.
+Print arsitektur model (IndoBERT)
 - **Request Body**:
   
   ```
@@ -170,37 +170,36 @@ Return the model architecture.
 
 ### 1. Clone the Repository
 
-Start by cloning the repository to your local machine. Open your terminal and run the following commands:
+Clone repositori ke lokal. Buka terminal dan jalankan kode berikut:
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/fathur-rs/klasifikasi-topik-hukum-flask-api.git
 
-# Change directory to the cloned repository
+# Masuk ke folder repo
 cd klasifikasi-topik-hukum-flask-api
 
-# Rename .env-example to .env
+# Rename .env-example ke .env
 mv .env-example .env
 
-# Generate a random string and insert it as SECRET_KEY in .env
+# Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
 echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
 ```
 
 ### 2. Docker Installation
 
-If you prefer using Docker, ensure that you have Docker and Docker Compose installed on your machine. Run the following command to build and start the service using Docker:
+
+Jika ingin menggunakan Docker, pastikan sudah menginstall Docker di lokal. Kemudian jalankan kode berikut untuk build dan start docker service:
 
 ```bash
-# Build and run the Flask app in a Docker container
 docker-compose up --build flask_app
 ```
+Kode diatas akan membangun image Docker dan menjalankan aplikasi Flask dalam sebuah kontainer. Perintah ini memetakan port yang sesuai ke `8000` sehingga Anda dapat mengaksesnya dengan `http://localhost:8000`
 
-This command builds the Docker image and starts the Flask application in a container. It maps the appropriate ports to `8000` so you can access it with `http://localhost:8000`
 
 ### 3. Local Installation
 
-For local installation, you need to have Python and Conda installed. Follow these steps to set up and run the application locally:
-
+Untuk instalasi lokal, bisa menggunakan Conda. Pastikan sudah menginstall conda sebelumnya. Ikuti perintah berikut:
 #### Step 1: Create and Activate a Conda Environment
 
 ```bash
@@ -213,21 +212,21 @@ conda activate ktk
 
 #### Step 2: Install Dependencies
 
-Install all required Python packages using `pip`:
+install Python packages menggunakan `pip`:
 
 ```bash
-# Install required Python packages from requirements.txt
 pip install -r requirements.txt
 ```
 
 #### Step 3: Run the Application
 
-Once all dependencies are installed, you can run the Flask application by executing:
+
+Setelah sudah menginstall package, jalankan Flask application dengan mengeksekusi kode berikut:
 
 ```bash
 # Run the Flask application
 python run.py
 ```
 
-This command will start the Flask server on the default port `http://localhost:8000`, and you can access the API endpoints from there.
+Perintah ini akan menjalankan server Flask pada port default http://localhost:8000, dan Anda dapat mengakses endpoint API dari sana.
 
