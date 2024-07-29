@@ -45,10 +45,10 @@ git clone https://github.com/fathur-rs/klasifikasi-topik-hukum-flask-api.git
 # Masuk ke folder repo
 cd klasifikasi-topik-hukum-flask-api
 
-# Rename .env-example ke .env
-mv .env-example .env
+# [MANDATORY] Rename .env-example ke .env 
+mv .env.example .env
 
-# Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
+# [MANDATORY] Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
 echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
 ```
 
