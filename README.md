@@ -32,23 +32,70 @@ Di banyak instansi pemerintah atau kepolisian, pengaduan dari masyarakat sering 
 **Implementasi:**
 Sistem ini cocok untuk diintegrasikan dalam operasional pemerintah daerah, kepolisian, dan instansi pemerintah lainnya yang sering menerima pengaduan publik. Dengan pemanfaatan teknologi seperti IndoBERT dalam klasifikasi teks, instansi pemerintah dapat mempercepat dan meningkatkan cara mereka merespon pengaduan dari masyarakat
 
-## Dataset
-Dataset berikut ini berisi 8500+ data QnA tentang pengaduan atau pertanyaan hukum di Indonesia yang telah di-scrap dari [HukumOnline](https://www.hukumonline.com/):
+## Installation Guide
+
+### 1. Clone the Repository
+
+Clone repositori ke lokal. Buka terminal dan jalankan kode berikut:
+
+```bash
+# Clone repository
+git clone https://github.com/fathur-rs/klasifikasi-topik-hukum-flask-api.git
+
+# Masuk ke folder repo
+cd klasifikasi-topik-hukum-flask-api
+
+# Rename .env-example ke .env
+mv .env-example .env
+
+# Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
+echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
+```
+
+### 2. Docker Installation
 
 
-## Model Card
-Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https://huggingface.co/indolem/indobert-base-uncased) 
+Jika ingin menggunakan Docker, pastikan sudah menginstall Docker di lokal. Kemudian jalankan kode berikut untuk build dan start docker service:
 
-| Epoch | Training Loss | Validation Loss | F1     |
-|-------|---------------|-----------------|--------|
-| 1     | 0.92132       | 1.232132        | 81.32  |
-| 2     | 0.842132      | 1.032132        | 81.53  |
-| 3     | 0.812321      | 0.9321324       | 82.139 |
-| 4     | 0.788542      | 0.832132        | 83.832 |
-| 5     | 0.75321321    | 0.7732143       | 84.3132|
-| 6     | 0.2321321     | 0.432143        | 84.543 |
-| 7     | 0.13321       | 0.42324         | 85.8934|
-| 8     | 0.0321343     | 0.412321        | 86.3213|
+```bash
+docker-compose up --build flask_app
+```
+Kode diatas akan membangun image Docker dan menjalankan aplikasi Flask dalam sebuah kontainer. Perintah ini memetakan port yang sesuai ke `8000` sehingga Anda dapat mengaksesnya dengan `http://localhost:8000`
+
+
+### 3. Local Installation
+
+Untuk instalasi lokal, bisa menggunakan Conda. Pastikan sudah menginstall conda sebelumnya. Ikuti perintah berikut:
+#### Step 1: Create and Activate a Conda Environment
+
+```bash
+# Create a new Conda environment
+conda create -n ktk python=3.10
+
+# Activate the Conda environment
+conda activate ktk
+```
+
+#### Step 2: Install Dependencies
+
+install Python packages menggunakan `pip`:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 3: Run the Application
+
+
+Setelah sudah menginstall package, jalankan Flask application dengan mengeksekusi kode berikut:
+
+```bash
+# Run the Flask application
+python run.py
+```
+
+Perintah ini akan menjalankan server Flask pada port default http://localhost:8000, dan Anda dapat mengakses endpoint API dari sana.
+
 
 ## API Endpoint
 
@@ -163,68 +210,20 @@ Print arsitektur model (IndoBERT)
   }
 ### Postman API Doc: [Postman Collection](https://api.postman.com/collections/23055226-dd03bf33-a140-4dd7-aeab-4be37d35a0b1?access_key=PMAT-01J3Z86V6P5J58SH9A78HP19HW)
 
-
-## Installation Guide
-
-### 1. Clone the Repository
-
-Clone repositori ke lokal. Buka terminal dan jalankan kode berikut:
-
-```bash
-# Clone repository
-git clone https://github.com/fathur-rs/klasifikasi-topik-hukum-flask-api.git
-
-# Masuk ke folder repo
-cd klasifikasi-topik-hukum-flask-api
-
-# Rename .env-example ke .env
-mv .env-example .env
-
-# Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
-echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
-```
-
-### 2. Docker Installation
+## Dataset
+Dataset berikut ini berisi 8500+ data QnA tentang pengaduan atau pertanyaan hukum di Indonesia yang telah di-scrap dari [HukumOnline](https://www.hukumonline.com/):
 
 
-Jika ingin menggunakan Docker, pastikan sudah menginstall Docker di lokal. Kemudian jalankan kode berikut untuk build dan start docker service:
+## Model Card
+Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https://huggingface.co/indolem/indobert-base-uncased) 
 
-```bash
-docker-compose up --build flask_app
-```
-Kode diatas akan membangun image Docker dan menjalankan aplikasi Flask dalam sebuah kontainer. Perintah ini memetakan port yang sesuai ke `8000` sehingga Anda dapat mengaksesnya dengan `http://localhost:8000`
-
-
-### 3. Local Installation
-
-Untuk instalasi lokal, bisa menggunakan Conda. Pastikan sudah menginstall conda sebelumnya. Ikuti perintah berikut:
-#### Step 1: Create and Activate a Conda Environment
-
-```bash
-# Create a new Conda environment
-conda create -n ktk python=3.10
-
-# Activate the Conda environment
-conda activate ktk
-```
-
-#### Step 2: Install Dependencies
-
-install Python packages menggunakan `pip`:
-
-```bash
-pip install -r requirements.txt
-```
-
-#### Step 3: Run the Application
-
-
-Setelah sudah menginstall package, jalankan Flask application dengan mengeksekusi kode berikut:
-
-```bash
-# Run the Flask application
-python run.py
-```
-
-Perintah ini akan menjalankan server Flask pada port default http://localhost:8000, dan Anda dapat mengakses endpoint API dari sana.
-
+| Epoch | Training Loss | Validation Loss | F1     |
+|-------|---------------|-----------------|--------|
+| 1     | 0.92132       | 1.232132        | 81.32  |
+| 2     | 0.842132      | 1.032132        | 81.53  |
+| 3     | 0.812321      | 0.9321324       | 82.139 |
+| 4     | 0.788542      | 0.832132        | 83.832 |
+| 5     | 0.75321321    | 0.7732143       | 84.3132|
+| 6     | 0.2321321     | 0.432143        | 84.543 |
+| 7     | 0.13321       | 0.42324         | 85.8934|
+| 8     | 0.0321343     | 0.412321        | 86.3213|
