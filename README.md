@@ -35,8 +35,6 @@ Sistem ini cocok untuk diintegrasikan dalam operasional pemerintah daerah, kepol
 ## Dataset
 Dataset berikut ini berisi 8500+ data QnA tentang pengaduan atau pertanyaan hukum di Indonesia yang telah di-scrap dari [HukumOnline](https://www.hukumonline.com/):
 
-* [QnA Hukum Indonesia](/dataset/QnA_hukum_indonesia.csv)
-* [Data Topik Pertanyaan](/dataset/pertanyaanTopik.csv)
 
 ## Model Card
 Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https://huggingface.co/indolem/indobert-base-uncased) 
