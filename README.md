@@ -217,6 +217,8 @@ Dataset berikut ini berisi 8500+ data QnA tentang pengaduan atau pertanyaan huku
 ## Model Card
 Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https://huggingface.co/indolem/indobert-base-uncased) 
 
+**HuggingFace Card: [HF Page](https://huggingface.co/fathurfrs/indobert-classifying-topik-hukum-indonesia)**
+
 | Epoch | Training Loss | Validation Loss | F1     |
 |-------|---------------|-----------------|--------|
 | 1     | 0.92132       | 1.232132        | 81.32  |
