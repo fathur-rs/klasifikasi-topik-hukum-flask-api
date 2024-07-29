@@ -14,8 +14,8 @@ def create_app():
     app = Flask(__name__)
     
     # Configuration settings
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your_default_secret_key')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///users.db')
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or 'default-secret-key'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI') or 'sqlite:///users.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # Connect to database
