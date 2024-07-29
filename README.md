@@ -126,7 +126,7 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
   Check the health status of the model.
 - **Request Body**:
   
-  ```json
+  ```
   None
 - **Response**:
   
@@ -152,14 +152,14 @@ Fine tuning menggunakan model Transformer [indolem/indobert-base-uncased](https:
 Return the model architecture.
 - **Request Body**:
   
-  ```json
+  ```
   None
 - **Response**:
   
   ```json
   {
      "message": {
-          "architecture": str
+          "architecture": "BERTSequence..."
      }
      "status_code": 200
   }
