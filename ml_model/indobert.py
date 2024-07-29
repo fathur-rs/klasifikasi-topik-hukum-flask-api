@@ -1,7 +1,6 @@
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch.nn.functional as F
 import torch
-import os
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -12,7 +11,7 @@ class IndoBERTClassifier:
         'Perdata', 'Hak Asasi Manusia', 'Profesi Hukum', 'Perlindungan Konsumen'
     ]
 
-    def __init__(self, model_name=os.environ.get("MODEL_NAME", "fathurfrs/indobert-classifying-topik-hukum-indonesia")):
+    def __init__(self, model_name="fathurfrs/indobert-classifying-topik-hukum-indonesia"):        
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name).to(self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
