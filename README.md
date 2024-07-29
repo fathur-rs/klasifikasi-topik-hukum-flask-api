@@ -58,7 +58,7 @@ echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
 Jika ingin menggunakan Docker, pastikan sudah menginstall Docker di lokal. Kemudian jalankan kode berikut untuk build dan start docker service:
 
 ```bash
-docker-compose up --build flask_app
+docker-compose up --build flask-app
 ```
 Kode diatas akan membangun image Docker dan menjalankan aplikasi Flask dalam sebuah kontainer. Perintah ini memetakan port yang sesuai ke `8000` sehingga Anda dapat mengaksesnya dengan `http://localhost:8000`
 
