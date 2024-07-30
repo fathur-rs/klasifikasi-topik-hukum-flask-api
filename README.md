@@ -49,7 +49,12 @@ cd klasifikasi-topik-hukum-flask-api
 mv .env.example .env
 
 # [MANDATORY] Generate random string kemudian dimasukkan ke variable SECRET_KEY yang ada di dalam .env
+## Run this if you are on Linux, Ubuntu, Debian
 echo "SECRET_KEY=$(openssl rand -hex 32)" >> .env
+
+## Run this if your are on Windows:
+$randomString = -join ((48..57) + (65..90) + (97..122) | Get-Random -Count 32 | % {[char]$_})
+Add-Content -Path .\.env -Value "`nSECRET_KEY=$randomString"
 ```
 
 ### 2. Docker Installation
